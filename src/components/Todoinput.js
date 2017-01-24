@@ -5,7 +5,10 @@ import TodoItems from "./Todoitems"
 
 export default class TodoInput extends React.Component {
 	renderItems(){
-		return _.map(this.props.todos, (todo, index) => <TodoItems key={index} {...todo}/>)
+		const props = _.omit(this.props, 'todos')
+
+		return _.map(this.props.todos, (todo, index) => <TodoItems key={index} {...todo}
+		 {...this.props}/>)
 	}
 
 	render() {
